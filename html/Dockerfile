@@ -1,13 +1,9 @@
-FROM node:latest
-
+FROM node:latest as build-stage
 WORKDIR /usr/src/app
-
 COPY . .
+RUN npm install && npm run build
 
-RUN apt-get update && \
-    apt-get install apache && \
-    npm install && \
-    npm build && \
-    cp ./dist/* /usr/local/apache2/htdocs/
-
+FROM httpd:2.4 as production-stage
+COPY --from=build-stage /usr/src/app/dist /usr/local/apache2/htdocs/
 EXPOSE 80
+CMD ["httpd-foreground"]
