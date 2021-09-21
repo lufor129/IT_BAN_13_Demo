@@ -5,7 +5,7 @@
 # 第13屆IT賽 Demo
 
 
-Test for Jenkins2
+Test for Jenkins3
 
 * Branch : feature/node
 * Branch : feature/compose
