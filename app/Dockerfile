@@ -5,7 +5,7 @@ FROM node:latest
 WORKDIR /usr/src/app
 
 # 將package.json 放入該資料夾內 (安裝依賴)
-COPY package*.json .
+COPY package*.json ./
 
 # 安裝node_module
 RUN npm install
