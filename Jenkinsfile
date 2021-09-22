@@ -1,8 +1,5 @@
 pipeline{
-  agent {
-    // Label 通常此pipeline meta data
-    label 'lufor'
-  }
+  agent any
 
   stages{
     stage("Building") {
