@@ -21,7 +21,7 @@ pipeline{
 
     stage("Test"){
       steps{
-        echo "Testing begin testing"
+        echo "Testing begin testing2"
         sh "pwd"
       }
     }
