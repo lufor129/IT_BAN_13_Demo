@@ -1,6 +1,6 @@
 pipeline{
   agent {
-    label jenkins_agent1
+    label "jenkins_agent1"
   }
 
   stages{
