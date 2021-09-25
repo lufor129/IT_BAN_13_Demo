@@ -4,11 +4,14 @@ pipeline{
   }
 
   stages{
-    stage("Building") {
-      steps {
+    stage("Delete Old Container"){
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
         echo "Delete the container"
         sh "docker rm -f run_mynode run_myweb"
-
+      }
+    }
+    stage("Building") {
+      steps {
         echo "Building App"
         sh "cd ./app && docker build -t mynode:latest ."
         sh "docker run -d -p 3000:3000 --name run_mynode --link my_postgres:my_postgres mynode:latest"
