@@ -1,5 +1,5 @@
 pipeline{
-  agent any
+  agent jenkins_agent1
 
   stages{
     stage("Building") {
@@ -9,7 +9,7 @@ pipeline{
 
         echo "Building App"
         sh "cd ./app && docker build -t mynode:latest ."
-        sh "docker run -d -p 4200:3000 --name run_mynode --link my_postgres:my_postgres mynode:latest"
+        sh "docker run -d -p 3000:3000 --name run_mynode --link my_postgres:my_postgres mynode:latest"
 
         echo "Building FrontEnd"
         sh "cd ./html && docker build -t myweb:latest ."
