@@ -5,9 +5,11 @@ pipeline{
 
   stages{
     stage("Delete Old Container"){
-      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-        echo "Delete the container"
-        sh "docker rm -f run_mynode run_myweb"
+      steps {
+        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+          echo "Delete the container"
+          sh "docker rm -f run_mynode run_myweb"
+        }
       }
     }
     stage("Building") {
