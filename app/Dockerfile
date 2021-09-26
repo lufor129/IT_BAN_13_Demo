@@ -1,6 +1,8 @@
 # 使用node為base Image
 FROM node:latest
 
+ENV NODE_ENV production
+
 # 移動到工作用的dir
 WORKDIR /usr/src/app
 
