@@ -38,13 +38,13 @@ pipeline{
 
   post {
     failure {
-      emailext body: 'Oh! no~ 失敗了',
-        subject: 'Build失敗了 QQ',
+      emailext body: 'NO it fail',
+        subject: 'Build fail QQ',
         to: 's59654655@gmail.com'
     }
     success {
-      emailext body: '成功了!',
-        subject: '好耶~ 成功了',
+      emailext body: 'Yes it work',
+        subject: 'Good it work',
         to: 's59654655@gmail.com'
     }
   }
