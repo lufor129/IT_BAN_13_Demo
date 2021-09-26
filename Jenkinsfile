@@ -43,7 +43,7 @@ pipeline{
         to: 's59654655@gmail.com'
     }
     success {
-      emailext body: '成功了',
+      emailext body: '成功了!',
         subject: '好耶~ 成功了',
         to: 's59654655@gmail.com'
     }
