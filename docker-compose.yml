@@ -1,0 +1,30 @@
+version: "3.9"
+services:
+  frontend:
+    build: ./html
+    image: myweb:latest
+    ports:
+      - 8085:80
+    container_name: run_myweb
+  backend:
+    build: ./app
+    image: mynode:latest
+    ports:
+      - 4200:3000
+    container_name: run_mynode
+  db:
+    image: postgres
+    ports:
+      - 5432:5432
+    container_name: my_postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+
+volumes:
+  pgdata:
+
+    
