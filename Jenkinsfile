@@ -1,6 +1,6 @@
 pipeline{
   agent {
-    label "jenkins_agent1"
+    label "master"
   }
 
   stages{
@@ -40,10 +40,14 @@ pipeline{
 
   post {
     failure {
-      echo "No!! it fail"
+      emailext body: 'Oh! no~ 失敗了',
+        subject: 'Build失敗了 QQ',
+        to: 's59654655@gmail.com'
     }
     success {
-      echo "Yes!! it work"
+      emailext body: '成功了',
+        subject: '好耶~ 成功了',
+        to: 's59654655@gmail.com'
     }
   }
 }
