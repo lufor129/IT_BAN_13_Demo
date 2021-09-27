@@ -7,11 +7,14 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+router.get("/Fail",function(req,res){
+  res.status(404).send("Fail !!")
+})
+
 router.get('/company',function(req,res){
   const sql = "SELECT * FROM COMPANY";
   DBconnect.query(sql)
     .then(data=>{
-      console.log(data)
       res.send(data)
     })
 })
