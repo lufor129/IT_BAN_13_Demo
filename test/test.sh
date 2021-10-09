@@ -13,6 +13,9 @@ mkdir -p ${R_DIR}
 
 /bin/rm -f ${T_DIR}/test-plan.jtl ${T_DIR}/jmeter.log  > /dev/null 2>&1
 
+echo ${PWD}
+echo $(ls)
+echo $(ls ./test)
 # **執行jmeter**
 docker run --rm --name ${NAME} -i -v ${PWD}:${PWD} -w ${PWD} ${IMAGE} \
 -Dlog_level.jmeter=DEBUG  -n -t ${T_DIR}/${JMX_NAME}.jmx -l ${T_DIR}/${JMX_NAME}.jtl \
