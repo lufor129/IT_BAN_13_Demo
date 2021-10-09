@@ -15,8 +15,8 @@ mkdir -p ${R_DIR}
 
 # **執行jmeter**
 docker run --rm --name ${NAME} -i -v ${PWD}:${PWD} -w ${PWD} ${IMAGE} \
--Dlog_level.jmeter=DEBUG  -n -t ${PWD/${T_DIR}/${JMX_NAME}.jmx -l ${PWD/${T_DIR}/${JMX_NAME}.jtl \
--j ${PWD/${T_DIR}/${JMX_NAME}.log -e -o ${PWD/${R_DIR}
+-Dlog_level.jmeter=DEBUG  -n -t ${PWD}/${T_DIR}/${JMX_NAME}.jmx -l ${PWD}/${T_DIR}/${JMX_NAME}.jtl \
+-j ${PWD}/${T_DIR}/${JMX_NAME}.log -e -o ${PWD}/${R_DIR}
 
 echo "==== jmeter.log ===="
 cat ${T_DIR}/${JMX_NAME}.log
