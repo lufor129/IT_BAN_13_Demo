@@ -25,6 +25,7 @@ pipeline{
     stage("Test"){
       steps{
         echo "Testing begin testing"
+        sh "chmod +x -R ${env.WORKSPACE}" 
         sh "./test/test.sh"
       }
     }
