@@ -24,8 +24,8 @@ pipeline{
 
     stage("Test"){
       steps{
-        echo "Testing begin testing2"
-        sh "pwd"
+        echo "Testing begin testing"
+        sh "./test/test.sh"
       }
     }
 
