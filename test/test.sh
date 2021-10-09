@@ -1,5 +1,4 @@
 #!/bin/bash
-WORKSPACE=${PWD}
 NAME="jmeter"
 JMETER_VERSION=${JMETER_VERSION:-"5.4"}
 IMAGE="justb4/jmeter:${JMETER_VERSION}"
@@ -16,14 +15,14 @@ mkdir -p ${R_DIR}
 
 # **執行jmeter**
 docker run --rm --name ${NAME} -i -v ${PWD}:${PWD} -w ${PWD} ${IMAGE} \
--Dlog_level.jmeter=DEBUG  -n -t ${PWD}/${T_DIR}/${JMX_NAME}.jmx -l ${PWD}/${T_DIR}/${JMX_NAME}.jtl \
--j ${PWD}/${T_DIR}/${JMX_NAME}.log -e -o ${PWD}/${R_DIR}
+-Dlog_level.jmeter=DEBUG  -n -t ${T_DIR}/${JMX_NAME}.jmx -l ${T_DIR}/${JMX_NAME}.jtl \
+-j ${T_DIR}/${JMX_NAME}.log -e -o ${R_DIR}
 
 echo "==== jmeter.log ===="
-cat ${PWD}/${T_DIR}/${JMX_NAME}.log
+cat ${T_DIR}/${JMX_NAME}.log
 
 echo "==== Raw Test Report ===="
-cat ${PWD}/${T_DIR}/${JMX_NAME}.jtl
+cat ${T_DIR}/${JMX_NAME}.jtl
 
 echo "==== HTML Test Report ===="
-echo "See HTML test report in ${PWD}/${R_DIR}/index.html"
+echo "See HTML test report in ${R_DIR}/index.html"
