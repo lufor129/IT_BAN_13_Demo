@@ -16,9 +16,9 @@ mkdir -p ${R_DIR}
 echo ${PWD}
 echo $(ls)
 echo $(ls ./test)
-echo $(ls /.test/press1)
+echo $(ls ./test/press1)
 # **執行jmeter**
-docker run --rm --name ${NAME} -i -v ${PWD}:${PWD} -w ${PWD} ${IMAGE} \
+docker run --rm --name ${NAME} -i -v ${PWD}:${PWD} ${IMAGE} \
 -Dlog_level.jmeter=DEBUG  -n -t ${T_DIR}/${JMX_NAME}.jmx -l ${T_DIR}/${JMX_NAME}.jtl \
 -j ${T_DIR}/${JMX_NAME}.log -e -o ${R_DIR}
 
